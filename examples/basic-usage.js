@@ -5,6 +5,7 @@ const image_content_type_pattern = DragAndDropModule.image_content_type_pattern;
 const getFileDataUrl = DragAndDropModule.utils.getFileDataUrl;
 
 function doSomethingWithBase64Image(base64_content) {
+
   // we'll just return an href as an example
   return "http://quilljs.com/images/quill-photo.jpg";
 }
@@ -21,6 +22,7 @@ const basic_editor = new Quill('#basic-editor', {
       // html attribute that will be added to the editor from this file
       draggables: [
         {
+
           // string regex pattern used to match a dropped file's `type`
           content_type_pattern: image_content_type_pattern,
 
@@ -40,11 +42,13 @@ const basic_editor = new Quill('#basic-editor', {
       //    file - the File object that was dropped
       onDrop(file) {
         return getFileDataUrl(file).then(base64_content => {
+
           // do something with the base64 content
           // e.g. save file to server, resize image, add a watermark, etc.
           return doSomethingWithBase64Image(base64_content);
         })
         .then(response_from_do_something => {
+
           // whatever you return (or promise) from `onDrop` will be used as the
           // value of the `attr` attribute for the new html element,
           // with a couple of exceptions:
@@ -60,6 +64,7 @@ const basic_editor = new Quill('#basic-editor', {
           return response_from_do_something;
         })
         .catch(err => {
+
           // return false to tell Quill to ignore this dropped file
           return false;
         });

@@ -20,7 +20,6 @@
     "url": "https://github.com/immense/quill-drag-and-drop-module/issues"
   },
   "homepage": "https://github.com/immense/quill-drag-and-drop-module#readme",
-  "tonicExampleFilename": "example.js",
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",
