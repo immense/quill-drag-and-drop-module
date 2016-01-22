@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("Quill"));
+	else if(typeof define === 'function' && define.amd)
+		define(["Quill"], factory);
+	else if(typeof exports === 'object')
+		exports["DragAndDropModule"] = factory(require("Quill"));
+	else
+		root["DragAndDropModule"] = factory(root["Quill"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -224,7 +234,7 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	module.exports = Quill;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
 /***/ },
 /* 2 */
@@ -284,4 +294,6 @@
 	};
 
 /***/ }
-/******/ ]);
+/******/ ])
+});
+;

@@ -1,7 +1,9 @@
 module.exports = {
   entry: './src/quill-module.js',
   output: {
-    filename: 'quill-module.js'
+    filename: 'quill-module.js',
+    library: 'DragAndDropModule',
+    libraryTarget: 'umd'
   },
   module: {
     loaders: [
