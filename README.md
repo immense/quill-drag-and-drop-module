@@ -62,4 +62,4 @@ npm run compile
 
 ## License
 
-The quill drag-and-drop module is released under the MIT License. Please see the LICENSE file for details.
+The quill drag-and-drop module is released under the MIT License. Please see the [LICENSE](LICENSE) file for details.
