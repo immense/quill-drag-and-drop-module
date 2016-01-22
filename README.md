@@ -53,9 +53,10 @@ See the [examples](examples) for more details.
 
 ## Building
 
-To build quill-drag-and-drop-module from the ECMAScript2015 source, do the following in a Node.js enabled environment:
+To compile the ES2015 source to ES5 [UMD](https://github.com/umdjs/umd), do the following in a Node.js enabled environment:
 
-```
+```bash
+cd /path/to/git/repo
 npm install
 npm run compile
 ```
