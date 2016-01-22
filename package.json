@@ -1,6 +1,6 @@
 {
   "name": "quill-drag-and-drop-module",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Quill module to add drag-and-drop support to the Quill container",
   "main": "quill-module.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "url": "https://github.com/immense/quill-drag-and-drop-module/issues"
   },
   "homepage": "https://github.com/immense/quill-drag-and-drop-module#readme",
+  "tonicExampleFilename": "example.js",
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",
