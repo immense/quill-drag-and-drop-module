@@ -1,10 +1,10 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("Quill"));
+		module.exports = factory(require("quill"));
 	else if(typeof define === 'function' && define.amd)
-		define(["Quill"], factory);
+		define(["quill"], factory);
 	else if(typeof exports === 'object')
-		exports["DragAndDropModule"] = factory(require("Quill"));
+		exports["DragAndDropModule"] = factory(require("quill"));
 	else
 		root["DragAndDropModule"] = factory(root["Quill"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {

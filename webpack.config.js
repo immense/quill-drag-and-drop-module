@@ -11,6 +11,11 @@ module.exports = {
     ]
   },
   externals: {
-    "quill": "Quill"
+    quill: {
+      root: "Quill",
+      commonjs: "quill",
+      commonjs2: "quill",
+      amd: "quill"
+    }
   }
 };
