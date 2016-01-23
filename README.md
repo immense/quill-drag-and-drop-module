@@ -49,7 +49,7 @@ const quill = new Quill('#basic-wrapper .editor-container', {
 });
 ```
 
-See the [examples](examples) for more details.
+See the [demo](http://immense.js.org/quill-drag-and-drop-module) for a working example.
 
 ## Building
 
