@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Quill module to add drag-and-drop support to the Quill container">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quill Drag-Drop Module</title>
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="quill.base.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <script src="quill.min.js"></script>
+    <script src='quill-module.js'></script>
+    <script src="index.js"></script>
+  </head>
+  <body class="mdl-demo mdl-color--grey-199 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Quill Drag-and-Drop Module</h3>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#usage-demo" class="mdl-layout__tab is-active">Usage &amp; Demo</a>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="usage-demo">
+
+          <section id="simple-example" class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdk-cell--12-col">
+              <h4><a href="#simple-example">§</a>&nbsp;Simple Example</h4>
+            </div>
+          </section>
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-tabs mdl-js-tabs">
+                <div class="mdl-tabs__tab-bar">
+                  <a href="#usage-demo-js" class="mdl-tabs__tab is-active">JS</a>
+                  <a href="#usage-demo-markup" class="mdl-tabs__tab">Markup</a>
+                </div>
+                <div id="usage-demo-js" class="mdl-tabs__panel is-active">
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                      <h5></h5>
+                      Configure the drag-and-drop functionality with the <code>dragAndDrop</code> module option
+                    </div>
+                    <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                      <pre><code class="language-javascript">  function doSomethingWithBase64Image(base64_content) {
+    return "http://quilljs.com/images/quill-photo.jpg";
+  }
+
+  var basic_editor = new Quill('#basic-editor', {
+    modules: {
+      toolbar: {
+        container: '#basic-toolbar'
+      },
+      dragAndDrop: {
+        draggables: [
+          {
+            content_type_pattern: '^image/',
+            tag: 'img',
+            attr: 'src'
+          }
+        ],
+        onDrop: function(file) {
+          return DragAndDropModule.utils.getFileDataUrl(file).then(function(base64_content) {
+            return doSomethingWithBase64Image(base64_content);
+          })
+          .then(function(response_from_do_something) {
+            return response_from_do_something;
+          })
+          .catch(function(err) {return false;});
+        }
+      }
+    }
+  });</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div id="usage-demo-markup" class="mdl-tabs__panel">
+                <div class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <h5></h5>
+                    Define your editor conainer like normal
+                  </div>
+                  <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <pre class="language-markup"><code class="language-markup">  &lt;div id="basic-editor"&gt;&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+              <h5>Result:&nbsp;&nbsp;<small>(drag an image onto it)</small></h5>
+              <div id="basic-editor" class="basic-wrapper"></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <a href="https://github.com/immense/quill-drag-and-drop-module" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
+    <script type="text/javascript" src="prism.js"></script>
+  </body>
+</html>
