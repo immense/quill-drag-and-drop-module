@@ -29,9 +29,8 @@
       </header>
       <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="usage-demo">
-
           <section id="simple-example" class="section--center mdl-grid mdl-grid--no-spacing">
-            <div class="mdl-cell mdk-cell--12-col">
+            <div class="mdl-cell mdl-cell--12-col">
               <h4><a href="#simple-example">§</a>&nbsp;Simple Example</h4>
             </div>
           </section>
@@ -46,38 +45,23 @@
                   <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
                       <h5></h5>
-                      Configure the drag-and-drop functionality with the <code>dragAndDrop</code> module option
+                      <p>Configure the drag-and-drop functionality with the <code>dragAndDrop</code> module option</p>
+                      <p><code class="language-javascript">draggables</code>:<br>The types of files that can be dragged</p>
                     </div>
                     <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                      <pre><code class="language-javascript">  function doSomethingWithBase64Image(base64_content) {
-    return "http://quilljs.com/images/quill-photo.jpg";
-  }
-
-  var basic_editor = new Quill('#basic-editor', {
-    modules: {
-      toolbar: {
-        container: '#basic-toolbar'
-      },
-      dragAndDrop: {
-        draggables: [
-          {
-            content_type_pattern: '^image/',
-            tag: 'img',
-            attr: 'src'
-          }
-        ],
-        onDrop: function(file) {
-          return DragAndDropModule.utils.getFileDataUrl(file).then(function(base64_content) {
-            return doSomethingWithBase64Image(base64_content);
-          })
-          .then(function(response_from_do_something) {
-            return response_from_do_something;
-          })
-          .catch(function(err) {return false;});
+                      <pre><code class="language-javascript">var basic_editor = new Quill('#basic-editor', {
+  modules: {
+    dragAndDrop: {
+      draggables: [
+        {
+          content_type_pattern: '^image/', // Any file with matching type will result in ...
+          tag: 'img', // ... an 'img' tag ...
+          attr: 'src' // ... with 'src' equal to the file's base64 (or the result of `onDrop` [see below]).
         }
-      }
+      ]
     }
-  });</code></pre>
+  }
+});</code></pre>
                   </div>
                 </div>
               </div>
@@ -88,7 +72,7 @@
                     Define your editor conainer like normal
                   </div>
                   <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                    <pre class="language-markup"><code class="language-markup">  &lt;div id="basic-editor"&gt;&lt;/div&gt;</code></pre>
+                    <pre class="language-markup"><code class="language-markup">&lt;div id="basic-editor"&gt;&lt;/div&gt;</code></pre>
                   </div>
                 </div>
               </div>
@@ -96,6 +80,91 @@
             <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
               <h5>Result:&nbsp;&nbsp;<small>(drag an image onto it)</small></h5>
               <div id="basic-editor" class="basic-wrapper"></div>
+            </div>
+          </section>
+          <section id="simple-example" class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h4><a href="#simple-example">§</a>&nbsp;A Somewhat More Advanced Example</h4>
+            </div>
+          </section>
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-tabs mdl-js-tabs">
+                <div class="mdl-tabs__tab-bar">
+                  <a href="#advanced-demo-js" class="mdl-tabs__tab is-active">JS</a>
+                  <a href="#advanced-demo-markup" class="mdl-tabs__tab">Markup</a>
+                  <a href="#advanced-demo-styles" class="mdl-tabs__tab">Styles</a>
+                </div>
+                <div id="advanced-demo-js" class="mdl-tabs__panel is-active">
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                      <h5></h5>
+                      You can specify a container to enable dragging and dropping
+                    </div>
+                    <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                      <pre><code class="language-javascript">function doSomethingWithBase64Image(base64_content) {
+  return "http://quilljs.com/images/quill-photo.jpg";
+}
+
+var basic_editor = new Quill('#basic-editor-2', {
+  modules: {
+    dragAndDrop: {
+      draggables: [
+        {
+          content_type_pattern: '^image/',
+          tag: 'img',
+          attr: 'src'
+        }
+      ],
+      onDrop: function(file) {
+        return DragAndDropModule.utils.getFileDataUrl(file).then(function(base64_content) {
+          return doSomethingWithBase64Image(base64_content);
+        })
+        .then(function(response_from_do_something) {
+          return response_from_do_something;
+        })
+        .catch(function(err) {return false;});
+      },
+      container: '#drag-and-drop-container'
+    }
+  }
+});</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div id="advanced-demo-markup" class="mdl-tabs__panel">
+                <div class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <h5></h5>
+                    Define a container for dragging and dropping.
+                  </div>
+                  <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <pre class="language-markup"><code class="language-markup">&lt;div id="basic-editor-2"&gt;
+  &lt;div id="drag-and-drop-container"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+                </div>
+              </div>
+              <div id="advanced-demo-styles" class="mdl-tabs__panel">
+                <div class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <h5></h5>
+                    Style the drag-and-drop container
+                  </div>
+                  <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                    <pre class="language-css"><code class="language-css">#drag-and-drop-container {
+  width: 50%;
+  border: 1px solid red;
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+              <h5>Result:&nbsp;&nbsp;<small>(drag an image onto the red section)</small></h5>
+              <div id="drag-and-drop-container"></div>
+              <div id="basic-editor-2" class="basic-wrapper">
+              </div>
             </div>
           </section>
         </div>

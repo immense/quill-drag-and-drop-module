@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+#drag-and-drop-container {
+  height: 50px;
+  border: 1px solid red;
+}
+
 .basic-wrapper {
   border: 1px solid #CCC;
   margin-top: 15px;
