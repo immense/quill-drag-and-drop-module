@@ -1,6 +1,6 @@
 {
   "name": "quill-drag-and-drop-module",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Quill module to add drag-and-drop support to the Quill container",
   "main": "quill-module.js",
   "scripts": {
