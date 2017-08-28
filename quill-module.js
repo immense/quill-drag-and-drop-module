@@ -52,15 +52,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _quill = __webpack_require__(1);
 
@@ -110,21 +110,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return Promise.resolve((onDrop || _utils.nullReturner)(file_info.file, { tag: file_info.tag, attr: file_info.attr })).then(function (ret) {
 	          return { on_drop_ret_val: ret, file_info: file_info };
 	        });
-	      }))
+	      })
 
 	      // map return vals of onDrop/nullReturner to file datas
-	      .then(function (datas) {
+	      ).then(function (datas) {
 	        return Promise.all(datas.map(function (_ref) {
-	          var on_drop_ret_val = _ref.on_drop_ret_val;
-	          var file_info = _ref.file_info;
+	          var on_drop_ret_val = _ref.on_drop_ret_val,
+	              file_info = _ref.file_info;
 
 	          if (on_drop_ret_val === false) {
 	            // if onDrop() returned false (or a false-bearing promise), it
 	            // means that we shouldn't do anything with this file
 	            return;
 	          }
-	          var tag = file_info.tag;
-	          var attr = file_info.attr;
+	          var tag = file_info.tag,
+	              attr = file_info.attr;
 	          // if ret is null, either onDrop() returned null (or a null-
 	          // bearing promise), or onDrop isn't defined, so just use the
 	          // file's base64 as the value for tag[draggable.attr]
@@ -133,7 +133,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          // something (or promised something) that isn't null or false.
 	          // Assume it's what we should use for tag[draggable.attr]
 
-	          var data = undefined;
+	          var data = void 0;
 	          if (on_drop_ret_val === null) data = (0, _utils.getFileDataUrl)(file_info.file);else data = on_drop_ret_val;
 
 	          return Promise.resolve(data).then(function (ret) {
@@ -146,9 +146,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	          // file_info is undefined if onDrop returned false
 	          if (file_info) {
-	            var data = file_info.data;
-	            var tag = file_info.tag;
-	            var attr = file_info.attr;
+	            var data = file_info.data,
+	                tag = file_info.tag,
+	                attr = file_info.attr;
 	            // create an element from the given `tag` (e.g. 'img')
 
 	            var new_element = document.createElement(tag);
@@ -175,9 +175,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // remove listeners
 	      var listeners = private_data.get(this).get('listeners');
 	      listeners.forEach(function (_ref2) {
-	        var node = _ref2.node;
-	        var event_name = _ref2.event_name;
-	        var listener = _ref2.listener;
+	        var node = _ref2.node,
+	            event_name = _ref2.event_name,
+	            listener = _ref2.listener;
 
 	        node.removeEventListener(event_name, listener);
 	      });
@@ -228,17 +228,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.default = DragAndDropModule;
 
-	_quill2.default.registerModule('dragAndDrop', DragAndDropModule);
 
-/***/ },
+	_quill2.default.register('modules/dragAndDrop', DragAndDropModule);
+
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -293,7 +294,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return null;
 	};
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

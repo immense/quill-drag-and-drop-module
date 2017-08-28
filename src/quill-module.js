@@ -135,4 +135,4 @@ export default class DragAndDropModule {
   }
 }
 
-Quill.registerModule('dragAndDrop', DragAndDropModule);
+Quill.register('modules/dragAndDrop', DragAndDropModule);
