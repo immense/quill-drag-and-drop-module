@@ -63,7 +63,7 @@ function initAdvancedDemo() {
           })
           .catch(function(err) {return false;});
         },
-        container: '#drag-and-drop-container'
+        container: document.getElementById('#drag-and-drop-container')
       }
     }
   });

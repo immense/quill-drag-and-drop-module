@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Quill Drag-Drop Module</title>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="quill.base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.1/quill.snow.min.css" integrity="sha256-oFsx+wpgsa48WibdqoyklT0g7ia0+ujsCx+WibTklDA=" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css">
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
-    <script src="quill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.1/quill.min.js" integrity="sha256-LztLuxxxdJcXhblxSpe88MylYG9f1yAC3ji2pSzVMh0=" crossorigin="anonymous"></script>
     <script src='quill-module.js'></script>
     <script src="index.js"></script>
   </head>
@@ -82,9 +82,9 @@
               <div id="basic-editor" class="basic-wrapper"></div>
             </div>
           </section>
-          <section id="simple-example" class="section--center mdl-grid mdl-grid--no-spacing">
+          <section id="advanced-example" class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--12-col">
-              <h4><a href="#simple-example">§</a>&nbsp;A Somewhat More Advanced Example</h4>
+              <h4><a href="#advanced-example">§</a>&nbsp;A Somewhat More Advanced Example</h4>
             </div>
           </section>
           <section class="section--center mdl-grid mdl-grid--no-spacing">
@@ -125,7 +125,7 @@ var basic_editor = new Quill('#basic-editor-2', {
         })
         .catch(function(err) {return false;});
       },
-      container: '#drag-and-drop-container'
+      container: document.getElementById('#drag-and-drop-container')
     }
   }
 });</code></pre>
