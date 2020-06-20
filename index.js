@@ -12,7 +12,7 @@ function initBasicDemo() {
   var getFileDataUrl = DragAndDropModule.utils.getFileDataUrl;
 
   function doSomethingWithBase64Image(base64_content) {
-    return "http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg";
+    return "https://immense.net/wp-content/uploads/2016/11/340x156_Logo.png";
   }
 
   var basic_editor = new Quill('#basic-editor', {
@@ -41,7 +41,7 @@ function initBasicDemo() {
 
 function initAdvancedDemo() {
   function doSomethingWithBase64Image(base64_content) {
-    return "http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg";
+    return "https://immense.net/wp-content/uploads/2016/11/340x156_Logo.png";
   }
 
   var basic_editor = new Quill('#basic-editor-2', {
